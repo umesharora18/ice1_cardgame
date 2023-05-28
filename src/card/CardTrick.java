@@ -35,6 +35,10 @@ public class CardTrick
         c.setValue(value);
         c.setSuit(Suit);
         boolean result=false;
+        Card luckyCard = new Card();
+        luckyCard.setValue(5);  
+        luckyCard.setSuit("Hearts");  
+
         
         for (int i=0; i<magicHand.length; i++)
         {
