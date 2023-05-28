@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package card;
-
+import java.util.*;
 /**
  * A class that models playing card Objects. Cards have 
  * a value (note that Ace = 1, Jack -11, Queen =12, King = 13)
@@ -12,16 +12,31 @@ package card;
  * This code is to be used in ICE1. When you create your own branch,
  * add your name as a modifier.
  * @author srinivsi
+ * Modifier: Umesh Arora
+ * Student ID: 991709215
  */
 public class Card {
 
    private String suit; //clubs, spades, diamonds, hearts
    private int value;//1-13
+   private String hand[];
 
    public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
-    /**
+   public static final int RANKS[]={1,2,3,4,5,6,7,8,9,10,11,12,13};    /**
      * @return the suit
      */
+   public static final int cards=7;
+   
+   public Card()
+   {
+       value=0;
+       suit="";
+   }
+   public Card(String suit, int value) {
+        this.suit = suit;
+        this.value = value;
+    }
+   
     public String getSuit() {
         return suit;
     }
@@ -30,7 +45,7 @@ public class Card {
      * @param suit the suit to set
      */
     public void setSuit(String suit) {
-        this.suit = suit;
+        this.suit=suit;
     }
 
     /**
@@ -44,9 +59,18 @@ public class Card {
      * @param value the value to set
      */
     public void setValue(int value) {
-        this.value = value;
+        this.value = this.value;
     }
-   
-   
+    
+
+    public static Card random_gen()
+    {  
+        
+        Random rand= new Random();
+
+       int randomValue = RANKS[rand.nextInt(RANKS.length)];
+        String randomSuit = SUITS[rand.nextInt(SUITS.length)];
+        return new Card(randomSuit, randomValue);
+    }   
     
 }
